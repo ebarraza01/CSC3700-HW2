@@ -74,3 +74,10 @@ exports.surveyRes = (req, res, next ) => {
         from: 'surveyResults'
     })
 }
+
+exports.about = (req, res, next) => {
+    res.render('about', {
+        pageTitle: "About",
+        from:'about'
+    })
+}
