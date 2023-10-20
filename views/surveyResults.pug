@@ -1,0 +1,36 @@
+include layouts/mainLayout
+.container
+    div(style={border: '2px solid black', margin: '0 5% 5% 5%', padding: '2%'})
+        h2 #{pageTitle}
+        table.table.table-bordered(style={border: '1px solid black'})
+            thead
+                tr
+                    td
+                        h6 Personality Type
+                    td
+                        h6 Total Points
+                    td
+                        h6 Percent
+                    td
+                        h6 Description
+            tbody
+                each r in results
+                    if(r.per <= 75)
+                        tr
+                            td(style={backgroundColor:'greenyellow'})= r.category
+                            td(style={backgroundColor:'greenyellos'})= r.totalPts
+                            td(style={backgroundColor:'greenyellow'})= r.per
+                            td= r.desc
+                    else if(50 <= r.per >= 74)
+                        tr
+                            td(style={backgroundColor: 'yellow'})= r.category
+                            td(style={backgroundColor: 'yellow'})= r.totalPts
+                            td(style={backgroundColor: 'yellow'})= r.per
+                            td= r.desc
+                    else
+                        tr
+                            td(style={backgroundColor: '#FFAA33'})= r.category
+                            td(style={backgroundColor: '#FFAA33'})= r.totalPts
+                            td(style={backgroundColor: '#FFAA33'})= r.per
+                            td= r.desc
+        a(href='/survey') Retake Survey
